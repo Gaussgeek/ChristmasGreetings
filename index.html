@@ -38,19 +38,18 @@
         }
 
         #nameDisplay {
-            font-size: 1.8em;
-            color: #b71c1c;
-            margin-top: 20px;
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #4caf50;
+            margin: 20px 0;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
             animation: fadeIn 2s ease-in-out;
         }
 
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
+        #greetings {
+            font-size: 1.2em;
+            color: #333;
+            margin: 10px 0;
         }
 
         .content {
@@ -100,17 +99,35 @@
             font-size: 1.2em;
             color: #666;
         }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Personalized Greeting Section -->
         <div class="header">
+            <div id="nameDisplay">Hey there! 😊</div>
+            <div id="greetings">
+                Greetings: <br>
+                <span>English: Hello!</span><br>
+                <span>Kiswahili: Habari!</span><br>
+                <span>Itesot: Ejokuno!</span><br>
+                <span>French: Bonjour!</span><br>
+                <span>German: Hallo!</span>
+            </div>
             <h1>Merry Christmas and a Happy 2025!</h1>
             <h2>Warm Wishes from Andrew Lukyamuzi</h2>
-            <!-- Dynamic Name Display -->
-            <div id="nameDisplay">Hey there!</div>
         </div>
 
+        <!-- Content Section -->
         <div class="content">
             <div class="card">
                 <img src="xmas1.png" alt="Christmas Tree with Lights">
@@ -138,13 +155,13 @@
         // Get the name from the query parameter
         const params = new URLSearchParams(window.location.search);
         const name = params.get('name');
-    
+
         // Display the name dynamically
         const nameDisplay = document.getElementById('nameDisplay');
         if (name) {
-            nameDisplay.textContent = `Hey ${decodeURIComponent(name)}!`;
+            nameDisplay.innerHTML = `Hey ${decodeURIComponent(name)}! 😊`;
         } else {
-            nameDisplay.textContent = 'Hey there!';
+            nameDisplay.innerHTML = 'Hey there! 😊';
         }
     </script>
 </body>
