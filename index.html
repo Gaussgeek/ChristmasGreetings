@@ -37,6 +37,22 @@
             color: #555;
         }
 
+        #nameDisplay {
+            font-size: 1.8em;
+            color: #b71c1c;
+            margin-top: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
         .content {
             display: flex;
             flex-wrap: wrap;
@@ -84,44 +100,6 @@
             font-size: 1.2em;
             color: #666;
         }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .content {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .card {
-                width: 80%; /* Cards occupy 80% of screen width on smaller devices */
-            }
-
-            h1 {
-                font-size: 2.5em;
-            }
-
-            h2 {
-                font-size: 1.3em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2em;
-            }
-
-            h2 {
-                font-size: 1.1em;
-            }
-
-            .card {
-                width: 100%; /* Cards take full width on very small devices */
-            }
-
-            .footer {
-                font-size: 1em;
-            }
-        }
     </style>
 </head>
 <body>
@@ -129,6 +107,8 @@
         <div class="header">
             <h1>Merry Christmas and a Happy 2025!</h1>
             <h2>Warm Wishes from Andrew Lukyamuzi</h2>
+            <!-- Dynamic Name Display -->
+            <div id="nameDisplay">Hey there!</div>
         </div>
 
         <div class="content">
@@ -153,5 +133,19 @@
             © 2025 Andrew Lukyamuzi. Wishing you a magical Christmas and an amazing New Year!
         </div>
     </div>
+
+    <script>
+        // Get the name from the URL
+        const url = window.location.href;
+        const name = url.split('/').pop();
+
+        // Display the name dynamically
+        const nameDisplay = document.getElementById('nameDisplay');
+        if (name) {
+            nameDisplay.textContent = `Hey ${decodeURIComponent(name)}!`;
+        } else {
+            nameDisplay.textContent = 'Hey there!';
+        }
+    </script>
 </body>
 </html>
