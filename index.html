@@ -26,14 +26,14 @@
         }
 
         h1 {
-            font-size: 3.5em;
+            font-size: 3em;
             margin-bottom: 10px;
             color: #b71c1c;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
         }
 
         h2 {
-            font-size: 1.8em;
+            font-size: 1.5em;
             color: #555;
         }
 
@@ -83,6 +83,44 @@
             margin-top: 50px;
             font-size: 1.2em;
             color: #666;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 80%; /* Cards occupy 80% of screen width on smaller devices */
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            h2 {
+                font-size: 1.3em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.1em;
+            }
+
+            .card {
+                width: 100%; /* Cards take full width on very small devices */
+            }
+
+            .footer {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
