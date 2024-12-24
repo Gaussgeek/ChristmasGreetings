@@ -135,10 +135,10 @@
     </div>
 
     <script>
-        // Get the name from the URL
-        const url = window.location.href;
-        const name = url.split('/').pop();
-
+        // Get the name from the query parameter
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get('name');
+    
         // Display the name dynamically
         const nameDisplay = document.getElementById('nameDisplay');
         if (name) {
